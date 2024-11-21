@@ -85,6 +85,9 @@ public class Algebra {
 			res = times(i, i);
 			result = i;
 		}
+		if (res > x) {
+			result = minus(result, 1);
+		}
 		return result;
 	}	  	  
 }
