@@ -28,6 +28,9 @@ public class Algebra {
 		for (int i = 1; i <= x2; i++) {
 			x1++;
 		}
+		for (int i = 1; i >= x2; i++){ 
+			x1--;
+		}
 		return x1;
 	}
 
