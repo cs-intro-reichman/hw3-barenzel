@@ -13,7 +13,7 @@ public class Algebra {
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		System.out.println(pow(5,3));      // 5^3
    		System.out.println(pow(3,5));      // 3^5
-   		System.out.println(div(12,3));   // 12 / 3    
+   		System.out.println(div(-12,-3));   // 12 / 3    
    		System.out.println(div(5,5));    // 5 / 5  
    		System.out.println(div(25,7));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
@@ -75,6 +75,9 @@ public class Algebra {
 		for (int i = 1; i <= n; i++) {
 			result = times(result, x);
 		}
+		if (x == 0){
+            result = 1;
+		}
 		return result;
 	}
 
@@ -82,9 +85,28 @@ public class Algebra {
 	public static int div(int x1, int x2) {
 		int result = x1;
 		int numberOfTimes = 0;
-		for (int i = 1; result >= x2; i++) {
-			result = minus(result, x2);
-			numberOfTimes = i;	
+		if (x1 >= x2 &&  x2 > 0) {
+		    for (int i = 1; result >= x2; i++) {
+			    result = minus(result, x2);
+		     	numberOfTimes = i;			
+	    	}
+		} else if (x1 >= x2 &&  x2 < 0) {
+			for (int i = 1; result > 0; i++) {
+			    result = plus(result, x2);
+		     	numberOfTimes = -1 * i;
+			}	
+		} else if (x1 < 0 && x2 > 0) {
+			for (int i = 1; result < 0; i++) {
+			    result = plus(result, x2);
+		     	numberOfTimes = -1 * i;
+		    }
+		} else if ( x1 < 0 && x2 < 0) {
+			for (int i = 1; result < 0; i++) {
+			    result = minus(result, x2);
+		     	numberOfTimes = i;
+		    }		
+		} else if (x2 == 0) {
+            numberOfTimes = -1;
 		}
 		return numberOfTimes;
 	}
