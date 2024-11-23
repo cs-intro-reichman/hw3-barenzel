@@ -60,11 +60,13 @@ public class Algebra {
 			    res = plus(res, x1);
 				result = res;
 			}	
+		} else if (x1 == 0 || x2 == 0) {
+			result =0;
 		} else {
 			for (int i = -1; i >= x2; i--) {
 				res = plus(res, x1);
 				result = -1 * res;
-			}
+			}	
 		}
 		return result;
 	}
@@ -75,8 +77,11 @@ public class Algebra {
 		for (int i = 1; i <= n; i++) {
 			result = times(result, x);
 		}
-		if (x == 0){
+		if (x == 0) {
             result = 1;
+		}	
+		if (n == 0)	{
+			result = 1;
 		}
 		return result;
 	}
