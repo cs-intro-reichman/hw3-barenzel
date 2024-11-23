@@ -55,7 +55,7 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		int res = 0;
 		int result = 1;
-		if (x2 >= 0){
+		if (x2 > 0){
 		    for (int i = 1; i <= x2; i++) {
 			    res = plus(res, x1);
 				result = res;
