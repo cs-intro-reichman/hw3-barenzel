@@ -53,9 +53,18 @@ public class Algebra {
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		int result = 0;
-		for (int i = 1; i <= x2; i++) {
-			result = plus(result, x1);
+		int res = 0;
+		int result = 1;
+		if (x2 >= 0){
+		    for (int i = 1; i <= x2; i++) {
+			    res = plus(res, x1);
+				result = res;
+			}	
+		} else {
+			for (int i = -1; i >= x2; i--) {
+				res = plus(res, x1);
+				result = -1 * res;
+			}
 		}
 		return result;
 	}
