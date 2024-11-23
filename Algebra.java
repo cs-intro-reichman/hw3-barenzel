@@ -61,7 +61,7 @@ public class Algebra {
 				result = res;
 			}	
 		} else if (x1 == 0 || x2 == 0) {
-			result =0;
+			result = 0;
 		} else {
 			for (int i = -1; i >= x2; i--) {
 				res = plus(res, x1);
@@ -78,7 +78,7 @@ public class Algebra {
 			result = times(result, x);
 		}
 		if (x == 0) {
-            result = 1;
+            result = 0;
 		}	
 		if (n == 0)	{
 			result = 1;
