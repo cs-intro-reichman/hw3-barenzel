@@ -2,6 +2,7 @@
 public class Anagram {
 	public static void main(String args[]) {
 		// Tests the isAnagram function.
+		System.out.println(isAnagram("","")); // true
 		System.out.println(isAnagram("William Shakespeare","I am a weakish speller")); // true
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
@@ -31,6 +32,10 @@ public class Anagram {
 		if ((str1 == " ") && (str2 == " ")) {
 			anagram = true;
 			return anagram;	
+		}	
+		if ((str1 == "") && (str2 == "")) {
+			anagram = true;
+			return anagram;
 		}	
 		String word1 = "";
 		String word2 = "";
