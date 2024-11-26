@@ -2,7 +2,7 @@
 public class Anagram {
 	public static void main(String args[]) {
 		// Tests the isAnagram function.
-		System.out.println(isAnagram("silent","listen"));  // true
+		System.out.println(isAnagram("",""));  // true
 		System.out.println(isAnagram("William Shakespeare","I am a weakish speller")); // true
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
@@ -31,11 +31,14 @@ public class Anagram {
 		String word1 = preProcess(str1);
 		String word2 = preProcess(str2);
 		boolean anagram = false; 
-		for (int i = 0; i < word1.length(); i++) {
-			if (word1.length() != word2.length()) {
-				anagram = false;
-				return anagram;
-			} else {
+		if (word1.length() != word2.length()) {
+			anagram = false;
+			return anagram;
+		} else if ((word1 == " ") && (word2 == " ")) {
+			anagram = true;
+			return anagram;	
+		} else {
+			for (int i = 0; i < word1.length(); i++) { 
 				for (int j = 0; j < word2.length(); j++) {
 					if (word2.charAt(j) != word1.charAt(i)) {
 						anagram = false;
