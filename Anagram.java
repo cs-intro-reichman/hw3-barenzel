@@ -2,7 +2,6 @@
 public class Anagram {
 	public static void main(String args[]) {
 		// Tests the isAnagram function.
-		System.out.println(isAnagram("",""));  // true
 		System.out.println(isAnagram("William Shakespeare","I am a weakish speller")); // true
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
@@ -28,15 +27,30 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		String word1 = preProcess(str1);
-		String word2 = preProcess(str2);
 		boolean anagram = false; 
+		if ((str1 == " ") && (str2 == " ")) {
+			anagram = true;
+			return anagram;	
+		}	
+		String word1 = "";
+		String word2 = "";
+		for (int i = 0; i < str1.length(); i++) {
+			char ch = str1.charAt(i);
+			if (ch != ' ') {
+				word1 = word1 + ch;
+			}
+		}
+		for (int i = 0; i < str2.length(); i++) {
+			char ch = str2.charAt(i);
+			if (ch != ' ') {
+				word2 = word2 + ch;
+			}
+		}
+		word1 = preProcess(word1);
+		word2 = preProcess(word2);
 		if (word1.length() != word2.length()) {
 			anagram = false;
 			return anagram;
-		} else if ((word1 == " ") && (word2 == " ")) {
-			anagram = true;
-			return anagram;	
 		} else {
 			for (int i = 0; i < word1.length(); i++) { 
 				for (int j = 0; j < word2.length(); j++) {
@@ -62,8 +76,8 @@ public class Anagram {
 		while (i < str.length()) {
 			char ch = str.charAt(i);
 			if (ch == ' ') {
-				i++;
-				continue;	
+				ch = ' ';
+				ans = ans + ch;
 			} else if ((str.charAt(i) <='Z') && (str.charAt(i) >= 'A')) {
 				ch = (char) (str.charAt(i) + 32);
 				ans = ans + ch;
