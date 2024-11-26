@@ -28,22 +28,67 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		String word1 = preProcess(str1);
+		String word2 = preProcess(str2);
+		boolean anagram = false; 
+		for (int i = 0; i < word1.length(); i++) {
+			if (word1.length() != word2.length()) {
+				anagram = false;
+				return anagram;
+			} else {
+				for (int j = 0; j < word2.length(); j++) {
+					if (word2.charAt(j) != word1.charAt(i)) {
+						anagram = false;
+						continue;
+					} else {
+						anagram = true;
+						break;
+					}
+				}
+			}
+		}
+		return anagram;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+		String ans = "";
+		int i = 0;
+		while (i < str.length()) {
+			char ch = str.charAt(i);
+			if (ch == ' ') {
+				i++;
+				continue;	
+			} else if ((str.charAt(i) <='Z') && (str.charAt(i) >= 'A')) {
+				ch = (char) (str.charAt(i) + 32);
+				ans = ans + ch;
+			} else if ((str.charAt(i) >= 'a') && (str.charAt(i) <= 'z')) {
+				ans = ans + ch;
+			} else if ((str.charAt(i) >= '0') && (str.charAt(i) <= '9')) {
+				ans = ans + ch;
+			} else {
+				i++;
+				continue;
+			}
+			i++;	
+		}
+		return ans;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+		String oldStr = str;
+		String newStr = "";
+		char newChar;
+		while (oldStr.length() > 0) {
+			int num = (int) (Math.random() * oldStr.length());
+			newChar = oldStr.charAt(num);
+			newStr = newStr + newChar;
+			oldStr = oldStr.substring(0, num) + oldStr.substring(num + 1);
+		}
+		return newStr;
 	}
 }
