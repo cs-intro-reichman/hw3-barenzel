@@ -56,16 +56,15 @@ public class Anagram {
 		if (word1.length() != word2.length()) {
 			anagram = false;
 			return anagram;
-		} else {
-			for (int i = 0; i < word1.length(); i++) { 
-				char ch = word1.charAt(i);
-				int index = word2.indexOf(ch);
-				if (index == -1) {
-					anagram = false;
-					return anagram;
-				}
-				word2 = word2.substring(0, index) + word2.substring(index + 1);
+		} 
+		for (int i = 0; i < word1.length(); i++) { 
+			char ch = word1.charAt(i);
+			int index = word2.indexOf(ch);
+			if (index == -1) {
+				anagram = false;
+				return anagram;
 			}
+			word2 = word2.substring(0, index) + word2.substring(index + 1);
 		}
 		return anagram;
 	}
