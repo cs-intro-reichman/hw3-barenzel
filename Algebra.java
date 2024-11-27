@@ -65,7 +65,7 @@ public class Algebra {
 		} else {
 			for (int i = -1; i >= x2; i--) {
 				res = plus(res, x1);
-				result = -1 * res;
+				result = minus(0, res);
 			}	
 		}
 		return result;
@@ -98,12 +98,12 @@ public class Algebra {
 		} else if (x1 >= x2 &&  x2 < 0) {
 			for (int i = 1; result > 0; i++) {
 			    result = plus(result, x2);
-		     	numberOfTimes = -1 * i;
+		     	numberOfTimes = minus(0, i);
 			}	
 		} else if (x1 < 0 && x2 > 0) {
 			for (int i = 1; result < 0; i++) {
 			    result = plus(result, x2);
-		     	numberOfTimes = -1 * i;
+		     	numberOfTimes = minus(0, i);
 		    }
 		} else if ( x1 < 0 && x2 < 0) {
 			for (int i = 1; result < 0; i++) {
@@ -111,7 +111,7 @@ public class Algebra {
 		     	numberOfTimes = i;
 		    }		
 		} else if (x2 == 0) {
-            numberOfTimes = -1;
+            numberOfTimes = minus(0, 1);
 		}
 		return numberOfTimes;
 	}
